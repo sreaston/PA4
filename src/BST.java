@@ -43,8 +43,10 @@ public class BST {
 				tmp = tmp.left;
 			}
 		}
+
 		BSTNode newNode = new BSTNode(key);
 		newNode.parent = parent;
+
 		if (parent.value > key) {
 			parent.left = newNode;
 		} else {
@@ -92,11 +94,11 @@ public class BST {
 			}
 			leaf.parent = null;
 		}
-
 	}
 
 	private void removeNodeWithOneChild(BSTNode node) { // complete this method
 		BSTNode child;
+
 		if (node.left != null) {
 			child = node.left;
 			node.left = null;
@@ -107,7 +109,6 @@ public class BST {
 		if (node == root) {
 			root = child;
 			child.parent = null;
-			// In C++, you would delete the node here if necessary
 		} else {
 			if (node == node.parent.left) {
 				node.parent.left = child;
@@ -116,7 +117,6 @@ public class BST {
 			}
 			child.parent = node.parent;
 			node.parent = null;
-			// In C++, you would delete the node here if necessary
 		}
 	}
 
@@ -126,11 +126,10 @@ public class BST {
 			BSTNode nodeY = search(y);
 
 			if (nodeX == null || nodeY == null) {
-				return null; // LCA is not defined if x or y is not in the tree
+				return null;
 			}
-
 			if (x == y) {
-				return nodeX; // LCA of the same node is the node itself
+				return nodeX;
 			}
 
 			int min = Math.min(x, y);
@@ -143,11 +142,10 @@ public class BST {
 				} else if (tmp.value > max) {
 					tmp = tmp.left;
 				} else {
-					return tmp; // LCA found
+					return tmp;
 				}
 			}
-
-			return null; // LCA not found
+			return null;
 		}
 
 
@@ -157,16 +155,15 @@ public class BST {
 
 		while (tmp != null) {
 			if (tmp.value <= key) {
-				rank++; // Increase rank by one
+				rank++;
 				if (tmp.left != null) {
-					rank += tmp.left.size; // Increase rank by the size of the left subtree
+					rank += tmp.left.size;
 				}
 				tmp = tmp.right;
 			} else {
 				tmp = tmp.left;
 			}
 		}
-
 		return rank;
 	}
 

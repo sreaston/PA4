@@ -1,0 +1,88 @@
+****************** Hashing with Chaining ******************
+Inserting the following numbers: [11, 12, 15, 17, 12, 19, 4, 5, 11, 19, 20, 32, 77, 65, 66, 88, 99, 10, 8, 19,
+15, 66, 11, 19, 0, 3, 2, 55, 67, 78, 39]
+*** Hash Table Structure (after insertion) ***
+Slot 0: [15, 99, 8, 78]
+Slot 1: [12, 19, 5]
+Slot 2: [65, 2]
+Slot 3: [20, 55]
+Slot 4: [17, 66, 10, 3]
+Slot 5: [77, 0]
+Slot 6: [11, 4, 32, 88, 67, 39]
+Size of hash table: 23
+*** Searching Hash Table ***
+Found: [3, 19, 12, 4, 5, 19, 20, 32, 99, 8, 12]
+Did not find: [29, 27, 34, 45, 37, 25, 25, 24, 16]
+*** Deleting Hash Table ***
+Deleted: [11, 12, 15, 5, 17, 19, 4, 20, 32, 39, 99, 10, 8, 0, 55, 3, 78, 66]
+Did not find: [16, 5, 17, 19, 19, 15, 21]
+*** Hash Table Structure (after deletion) ***
+Slot 0: []
+Slot 1: []
+Slot 2: [65, 2]
+Slot 3: []
+Slot 4: []
+Slot 5: [77]
+Slot 6: [88, 67]
+Size of hash table: 5
+****************** Hashing with Probing ******************
+Inserting the following numbers: [11, 12, 15, 17, 12, 19, 4, 5, 11, 19, 20, 32, 77, 65, 66, 88, 99, 10, 8, 19,
+15, 66, 11, 19, 0, 3, 2, 55, 67, 78, 39]
+*** Hash Table Structure (after insertion) ***
+[39, 20, 65, 78, -1, 8, -1, 66, 15, 2, -1, -1, 99, 3, 67, 10, 55, 4, 17, -1, 11, 88, 5, -1, -1, 12, -1, -1, 19, 32,
+77, 0]
+Size of hash table: 23
+*** Searching Hash Table ***
+Found: [3, 19, 12, 4, 5, 19, 20, 32, 99, 8, 12]
+Did not find: [29, 27, 34, 45, 37, 25, 25, 24, 16]
+*** Deleting Hash Table ***
+Deleted: [11, 12, 15, 5, 17, 19, 4, 20, 32, 39, 99, 10, 8, 0, 55, 3, 78, 66]
+Did not find: [16, 5, 17, 19, 19, 15, 21]
+*** Hash Table Structure (after deletion) ***
+[-1, -1, 65, -1, -1, -1, 67, -9, -1, 2, -1, -9, 77, 88]
+Size of hash table: 5
+****************** BST ******************
+Inserting the following numbers: [11, 12, 15, 17, 12, 19, 4, 5, 11, 19, 20, 32, 77, 65, 66, 88, 99, 10, 8, 19,
+15, 66, 11, 19, 0, 3, 2, 55, 67, 78, 39]
+
+*** BST Structure (after insertion) ***
+<11, null> <4, 11> <0, 4> <3, 0> <2, 3> <5, 4> <10, 5> <8, 10> <12, 11> <15, 12> <17, 15> <19, 17>
+<20, 19> <32, 20> <77, 32> <65, 77> <55, 65> <39, 55> <66, 65> <67, 66> <88, 77> <78, 88> <99, 88>
+Size of BST: 23
+*** Searching BST ***
+Found: [3, 19, 12, 4, 5, 19, 20, 32, 99, 8, 12]
+Did not find: [29, 27, 34, 45, 37, 25, 25, 24, 16]
+*** Deleting BST ***
+Deleted: [11, 12, 15, 5, 17, 19, 4, 20, 32, 39, 99, 10, 8, 0, 55, 3, 78, 66]
+Did not find: [16, 5, 17, 19, 19, 15, 21]
+*** BST Structure (after deletion) ***
+<2, null> <77, 2> <65, 77> <67, 65> <88, 77>
+Size of BST: 5
+****************** Clean up ******************
+Size of chaining: 0
+Size of probing: 0
+Size of BST: 0
+****************** BST Applications ******************
+Numbers in BST: [50, 25, 80, 15, 40, 60, 90, 10, 20, 35, 45, 55, 65, 85, 95]
+LCA of 20 and 45 is 25
+LCA of 35 and 45 is 40
+LCA of 95 and 25 is 50
+LCA of 90 and 65 is 80
+LCA of 40 and 40 is 40
+LCA of 23 and 85 is undefined
+LCA of 82 and 35 is undefined
+Rank of 10 is 1
+Rank of 54 is 8
+Rank of 18 is 2
+Rank of 42 is 6
+Rank of 37 is 5
+Rank of 34 is 4
+Rank of 9 is 0
+Rank of 95 is 15
+Rank of 57 is 9
+Rank of 44 is 6
+Rank of 67 is 11
+Rank of 88 is 13
+Rank of 62 is 10
+Rank of 47 is 7
+Rank of 100 is 15

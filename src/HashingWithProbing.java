@@ -33,12 +33,9 @@ public class HashingWithProbing {
 
         int i = 0;
         while (i < hashTable.size()) {
-            if (hashTable.get(i) == TOMBSTONE) {
-                return;
-            } else if (hashTable.get(i) == EMPTY) {
-                return;
-            } else {
-                keys.add(hashTable.get(i));
+            if (hashTable.get(i) != EMPTY || hashTable.get(i) != TOMBSTONE) {
+               keys.add(hashTable.get(i));
+
             }
             i++;
         }
@@ -51,7 +48,7 @@ public class HashingWithProbing {
 
 	public int search(int key) { // complete this method
 		int keyHash = hash(key);
-
+		boolean loopTerminated = false;
 		int i = 0;
 		while (i < capacity()) {
 			if (hashTable.get(keyHash) == key) {
@@ -93,9 +90,10 @@ public class HashingWithProbing {
 
 	public int remove(int key) { // complete this method
 		int index = search(key);
-		if (key < 0) {
+		if (index < 0) {
 			return -1;
 		}
+		hashTable.set(index, TOMBSTONE);
 		_garbage++;
 		_size--;
 		if (_garbage * 2 == capacity()) {
