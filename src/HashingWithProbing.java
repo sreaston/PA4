@@ -29,28 +29,23 @@ public class HashingWithProbing {
 	}
 
 	private void resize(int newTableSize) { // complete this method
-		ArrayList<Integer> keys = new ArrayList<Integer>();
-
-        int i = 0;
-        while (i < hashTable.size()) {
-            if (hashTable.get(i) != EMPTY || hashTable.get(i) != TOMBSTONE) {
-               keys.add(hashTable.get(i));
-
-            }
-            i++;
-        }
-		init(newTableSize);
-		while (i < keys.size()) {
-			hashTable.add(keys.get(i));
-			i++;
+		ArrayList<Integer> keys = new ArrayList<>();
+		for (int i = 0; i < capacity(); i++) {
+			if (hashTable.get(i) != EMPTY && hashTable.get(i) != TOMBSTONE) {
+				keys.add(hashTable.get(i));
+			}
 		}
-    }
+
+		init(newTableSize);
+
+		for (Integer key : keys) {
+			insert(key);
+		}
+	}
 
 	public int search(int key) { // complete this method
 		int keyHash = hash(key);
-		boolean loopTerminated = false;
-		int i = 0;
-		while (i < capacity()) {
+		for (int i = 0; i < capacity(); i++) {
 			if (hashTable.get(keyHash) == key) {
 				return keyHash;
 			} else if (hashTable.get(keyHash) == EMPTY) {
@@ -60,10 +55,10 @@ public class HashingWithProbing {
 			if (keyHash == capacity()) {
 				keyHash = 0;
 			}
-			i++;
 		}
-	return keyHash;
+		return -1;
 	}
+
 
 	public int insert(int key) { // complete this method
 		if ((_size + _garbage) == capacity()) {
